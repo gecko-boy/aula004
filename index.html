@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houdini</title>
+</head>
+<body>
+    <h2>Greetings, fellow traveller!</h2>
+    <h2>Let's play a little game...</h2>
+    <h3>Think of a number... any number between 
+        <span id="minNum"></span> and 
+        <span id="maxNum"></span></h3>
+    <h3>Let me guess... is it: <span id="number"></span></h3>
+    <hr>
+    <button onclick="bigger()">No, it's bigger...</button>
+    <button onclick="smaller()">No, it's smaller...</button>
+    <button onclick="bingo()">Hm, that's the one!</button>
+    <hr>
+    <h1 id="genius"> </h1>
+
+    <script>
+        var minNum = 0;
+        var maxNum = 100;
+        var newTry = Math.round((minNum + maxNum) /2 );
+
+        document.getElementById("minNum").innerHTML = minNum;
+        document.getElementById("maxNum").innerHTML = maxNum;
+        document.getElementById("number").innerHTML = newTry;
+
+        var bigger = function() {
+            // what happens if it's bigger~
+            minNum = newTry;
+            tryAgain();
+        }
+
+        var smaller = function() {
+            // what happens if it's smaller
+            maxNum = newTry;
+            tryAgain();
+
+        }
+        
+        var bingo = function() {
+            // what happens if it's the one
+            document.getElementById("genius").innerHTML = "I'm a genius, aren't I?";
+        }
+
+        var randomRange = function(a, b) {
+            var value = Math.round(
+                a + Math.random() * (b - a)
+            );
+            return value;
+        }
+
+        var tryAgain = function () {
+            newTry = randomRange(minNum, maxNum);
+            document.getElementById("number").innerHTML = newTry;
+        }
+
+    </script>
+</body>
+</html>

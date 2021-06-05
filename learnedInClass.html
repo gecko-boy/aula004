@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Javasciript</title>
+
+    
+</head>
+<body>
+
+    <script>
+
+        // como fazer randomRange
+        var randomRange = function(a, b) {
+            var value = Math.round(
+                a + Math.random() * (b - a)
+            );
+            return value;
+        }
+
+        var wtvNum = randomRange(3, 8);
+
+        document.write("<h1>" + wtvNum + "</h1>");
+
+        // verificar se um número é par
+        var par = function(num) {
+            if (num % 2 === 0) {
+                return "par";
+            } else {
+                return "ímpar";
+            }
+        }
+
+        document.write("<h1>" + par(wtvNum) + "</h1>");
+
+        // para usar o botão dps
+
+    var olaMundo = function(elm) {
+        document.getElementById(elm).innerHTML="Olá, Mundo!";
+    }
+    </script>
+
+    <!-- botões -->
+    <button onclick="olaMundo('title')">Touch me daddy</button>
+    <h1 id= "title"></h1>
+</body>
+</html>
